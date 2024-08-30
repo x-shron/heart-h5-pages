@@ -1,6 +1,6 @@
 import "./index.less";
 import { useSearchParams } from "umi";
-import { Avatar, Button, Grid, Space, Tag } from "antd-mobile";
+import { Avatar, Button, Grid, Space, SpinLoading, Tag } from "antd-mobile";
 import { useEffect, useState } from "react";
 import { getDynamicDetail } from "@/service";
 
@@ -66,17 +66,17 @@ export default () => {
     <div className="dynamic-share">
       <div className="top-fix-tip">聊天交友，就用联线心动！</div>
       <div className="share-info-user">
-        <Avatar src={headImg} />
+        <Avatar src={headImg || ''} /> 
         <div className="info">
           <div className="title">
             {nickName || "--"}
-            <Tag round color="#FAC8FF">
+            {sex != undefined && <Tag round color="#FAC8FF">
               {sex === 0 ? "男" : "女"}
               {age}
-            </Tag>
-            <Tag round color={statusMap[status]?.color}>
+            </Tag>}
+            {status != undefined && <Tag round color={statusMap[status]?.color}>
               {statusMap[status]?.text || "--"}
-            </Tag>
+            </Tag>}
           </div>
           <div className="desc">
             <div>
@@ -91,7 +91,7 @@ export default () => {
       <div className="share-info-text-content">
         <pre
           style={{ wordWrap: "break-word", whiteSpace: "pre-wrap", margin: 0 }}
-        >{`${content}`}</pre>
+        >{content || ''}</pre>
       </div>
       <div className="share-info-content-img">
         <Grid columns={3} gap={8}>
@@ -104,14 +104,12 @@ export default () => {
           ))}
         </Grid>
       </div>
-
       <div className="share-info-view-more">
         <img className="modal-bg" src={require("@/assets/modal-bg.png")} />
         <Button className="more-btn" shape="rounded" color="primary">
           查看更多动态
         </Button>
       </div>
-
       <div className="bottom-fix-wrap">
         <div className="bottom-download">
           <div className="bottom-logo">
