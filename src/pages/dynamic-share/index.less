@@ -6,6 +6,60 @@
         color: #fff;
         font-size: 16px;
     }
+    .share-info-user{
+        display: flex;
+        padding: 16px 20px;
+        font-size: 16px;
+        .adm-avatar{
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .desc{
+            font-size: 12px;
+            color: #686868;
+            margin-top: 6px;
+            line-height: 18px;
+        }
+    }
+    .share-info-content-img{
+        padding: 10px 20px;
+        .img-item{
+            width: 100% ;
+            height: 111px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #c9c6c6;
+            border-radius: 8px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .share-info-view-more{
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 0;
+        .modal-bg{
+            width: 100%;
+        }
+        .more-btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
   .bottom-fix-wrap {
     position: fixed;
     bottom: 0;
