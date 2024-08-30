@@ -18,4 +18,12 @@ export default defineConfig({
     "@": "/src",
   },
   base: "/h5",
+  proxy: {
+    '/api': {
+        //联调地址
+        target: 'https://springboot-p6qg-111263-4-1325524078.sh.run.tcloudbase.com',
+        changeOrigin: true,
+        pathRewrite: {},
+    },
+},
 });
