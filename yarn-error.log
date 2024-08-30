@@ -1,0 +1,45 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add antd-mobile
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files (x86)\NetSarang\Xshell 7\;C:\Users\Lenovo\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Lenovo\AppData\Local\Yarn\Data\global\node_modules\.bin;;C:\Program Files (x86)\Tencent\微信web开发者工具\dll;E:\bin;C:\Users\Lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\Lenovo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Lenovo\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\DevEco Studio\bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Lenovo\Desktop\anythings-about-fe\heart\h5-pages\node_modules\@esbuild\win32-x64\esbuild.exe'
+
+npm manifest: 
+  {
+    "private": true,
+    "author": "x_shron <x_shron@sina.com>",
+    "scripts": {
+      "dev": "umi dev",
+      "build": "umi build",
+      "postinstall": "umi setup",
+      "setup": "umi setup",
+      "start": "npm run dev"
+    },
+    "dependencies": {
+      "postcss-pxtorem": "^6.1.0",
+      "umi": "^4.3.17"
+    },
+    "devDependencies": {
+      "@types/react": "^18.0.33",
+      "@types/react-dom": "^18.0.11",
+      "typescript": "^5.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
