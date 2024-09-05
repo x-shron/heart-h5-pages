@@ -53,7 +53,7 @@ export default () => {
   }, [id]);
 
   const downloadApp = () => {
-    const iosUrl = "https://itunes.apple.com/cn/app/id455611831";
+    const iosUrl = "https://itunes.apple.com/cn/app/id6670462750";
     const androidUrl = "";
     if (navigator.userAgent.includes("iPhone")) {
       window.open(iosUrl);
