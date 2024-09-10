@@ -19,6 +19,7 @@ const InputCascadePicker: React.FC<IProps> = ({
       <CascadePicker
         value={value }
         onConfirm={onChange}
+        style={{'--item-height': '50px', '--item-font-size' : "18px",'--header-button-font-size': "17px"}}
         {...restProps}
       >
         {(items, { open }) => {

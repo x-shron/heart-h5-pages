@@ -60,3 +60,13 @@ export const entryUser = async (params?: any) => {
     });
     return res.data;
 };
+
+export const entryUserList = async (params?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'post',
+        url: `/api/user/entry/page`,
+        data: params
+    });
+    return res.data;
+};

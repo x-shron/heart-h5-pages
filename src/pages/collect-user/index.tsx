@@ -29,10 +29,10 @@ import {
 } from "@/service";
 import InputCascadePicker from "@/components/InputCascadePicker";
 import lrz from "lrz";
+import NavbarTitle from "@/components/NavbarTitle";
 
 const maxCount = 9;
 export default () => {
-  const [isWeixin] = useState(isWeChat());
 
   const [options, setOptions] = useState<any>({
     sex: [SEX_OPTIONS],
@@ -49,12 +49,8 @@ export default () => {
   const [matchmakerForm] = Form.useForm();
 
   const [loading, setLoading] = useState(false);
-  const [registerSuccess, setRegisterSuccess] = useState(true);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
   const [successNum, setSuccessNum] = useState(0);
-
-  useLayoutEffect(() => {
-    document.title = "线下相亲资料填写";
-  }, []);
 
   useEffect(() => {
     Promise.all([getAreasMap(), getJobs()]).then((res) => {
@@ -70,16 +66,12 @@ export default () => {
     });
   }, []);
   const uploadImg = (file: any) => {
-    lrz(file,{ quality: 0.1 }).then((res: any) => {
-        
-    })
-
-    let formData = new FormData();
-    formData.append("file", file);
-    return uploadFileImg(formData).then((res) => {
-      return {
-        url: res,
-      };
+    return lrz(file, { quality: 0.5 }).then((res: any) => {
+      return uploadFileImg(res.formData).then((res) => {
+        return {
+          url: res,
+        };
+      });
     });
   };
 
@@ -134,6 +126,10 @@ export default () => {
         .then((res) => {
           setSuccessNum(successNum + 1);
           setRegisterSuccess(true);
+          userForm.resetFields();
+          matchmakerForm.resetFields();
+          setRemark("");
+          setFileList([]);
         })
         .then(() => {
           setLoading(false);
@@ -142,7 +138,7 @@ export default () => {
   };
   return (
     <div className="collect-user">
-      {!isWeixin && <NavBar back={null}>线下相亲资料填写</NavBar>}
+      <NavbarTitle title="线下相亲资料填写" back={null} />
       {registerSuccess ? (
         <Result
           status="success"
