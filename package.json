@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
+    "@types/react-virtualized": "^9.21.30",
     "postcss": "^8.4.41",
     "postcss-pxtorem": "^6.1.0",
     "typescript": "^5.0.3",
