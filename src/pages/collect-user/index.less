@@ -1,0 +1,76 @@
+.collect-user{
+    overflow: hidden;
+    .back-btn{
+        margin-top: 30px
+    }
+    .image-uploader{
+        
+        padding: 16px;
+        .adm-image-uploader-upload-button-wrap{
+            transform: translateX(105%)
+        }
+        .adm-image-uploader-cell+.adm-image-uploader-upload-button-wrap{
+            transform: translateX(0)
+        }
+        .adm-image-uploader-cell-image{
+            overflow: hidden;
+        }
+        .image-uploader-add-btn{
+            overflow: hidden;
+            width: var(--cell-size);
+            height: var(--cell-size);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: 80%;
+                height: 80%;
+            }
+            .add-tip{
+                position: absolute;
+                width: 32px;
+                height: 32px;
+                right: 16px;
+                bottom: 8px;
+            }
+        }
+    }
+    .adm-result-success{
+        background-color: var(--adm-color-background-body);
+        margin-top: 100px;
+    }
+    .adm-nav-bar {
+        background-color: var(--adm-color-background);
+    }
+    .form-content{
+        padding: 16px;
+        .adm-picker{
+            height: 30rem;
+        }
+        .adm-list-default .adm-list-body{
+            border-top: none;
+            border-bottom: none;
+        }
+        .adm-card-header:not(:last-child) {
+            border-bottom-width: 1px;
+        }
+        .adm-list-item-content{
+            border-top: none;
+        }
+        .adm-list-item  + .adm-list-item {
+            border-top: var(--border-inner);
+        }
+        .adm-list-item{
+            padding-left: 0;
+            margin-left: var(--padding-left);
+        }
+        .divider{
+            height: 20px;
+        }
+        .submit{
+            margin-top: 20px;
+        }
+        
+    }
+}

@@ -27,7 +27,7 @@ export function request<T = any>(config: RequestConfig): Promise<T> {
           ) {
             Toast.show({
                 icon: 'fail',
-              content: data.message,
+              content: data.message || '服务器异常',
             });
           }
         }
@@ -36,7 +36,7 @@ export function request<T = any>(config: RequestConfig): Promise<T> {
           // 约定 成功code 为 0
           Toast.show({
             icon: 'fail',
-            content: data.message,
+            content: data.message || '服务器异常',
           });
           return Promise.reject(data.errorMsg);
         }
@@ -45,7 +45,7 @@ export function request<T = any>(config: RequestConfig): Promise<T> {
       (err) => {
         Toast.show({
             icon: 'fail',
-          content: err.message,
+          content: err.message || '服务器异常',
         });
         return Promise.reject(err.message || "Uncaught error");
       }

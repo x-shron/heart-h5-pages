@@ -20,6 +20,9 @@ export default defineConfig({
     "@": "/src",
   },
   base: "/h5",
+  chainWebpack(config, args) {
+    config.output.clean(true).chunkFilename("[contenthash].js");
+  },
   // proxy: {
   //   "/api": {
   //     //联调地址

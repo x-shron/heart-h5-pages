@@ -12,3 +12,51 @@ export const getDynamicDetail = async (id?: any) => {
     });
     return res.data;
 };
+
+export const getJobs = async (id?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'get',
+        url: `/api/config/vocationMap`,
+    });
+    return res.data;
+};
+
+export const getAreasMap = async (id?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'get',
+        url: `/api/config/districtCodeMap`,
+    });
+    return res.data;
+};
+
+export const uploadFileImg = async (params?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'post',
+        url: `/api/file/upload/image?t=${new Date().getTime()}`,
+        data: params
+    });
+    return res.data;
+};
+
+export const deleteFileImg = async (params?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'post',
+        url: `/api/file/remove/image`,
+        data: params
+    });
+    return res.data;
+};
+
+export const entryUser = async (params?: any) => {
+    const res = await request({
+        baseURL,
+        method: 'post',
+        url: `/api/user/entry/modify`,
+        data: params
+    });
+    return res.data;
+};
