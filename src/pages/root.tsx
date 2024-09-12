@@ -1,9 +1,10 @@
 import React from 'react'
-import { Result } from 'antd-mobile'
+import { Button, Result } from 'antd-mobile'
 import { SmileOutline } from 'antd-mobile-icons'
 
 export default (props: any) => {
   return (
+    <>
     <Result
             style={{marginTop: '200px'}}
           status='success'
@@ -11,5 +12,7 @@ export default (props: any) => {
           title={undefined}
           {...props}
         />
+    </>
+
   )
 }

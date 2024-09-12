@@ -28,6 +28,7 @@ import {
   entryUser,
 } from "@/service";
 import InputCascadePicker from "@/components/InputCascadePicker";
+// @ts-ignore
 import lrz from "lrz";
 import NavbarTitle from "@/components/NavbarTitle";
 
@@ -138,7 +139,7 @@ export default () => {
   };
   return (
     <div className="collect-user">
-      <NavbarTitle title="线下相亲资料填写" back={null} />
+      <NavbarTitle title="单身找对象资料填写" back={null} />
       {registerSuccess ? (
         <Result
           status="success"
