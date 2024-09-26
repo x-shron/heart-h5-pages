@@ -3,9 +3,9 @@
     .back-btn{
         margin-top: 30px
     }
+   
     .image-uploader{
-        
-        padding: 16px;
+        margin: 16px;
         .adm-image-uploader-upload-button-wrap{
             transform: translateX(105%)
         }
@@ -16,7 +16,6 @@
             overflow: hidden;
         }
         .image-uploader-add-btn{
-            overflow: hidden;
             width: var(--cell-size);
             height: var(--cell-size);
             position: relative;
@@ -26,6 +25,7 @@
             img{
                 width: 80%;
                 height: 80%;
+                transform: translateY(-10px);
             }
             .add-tip{
                 position: absolute;
@@ -33,6 +33,13 @@
                 height: 32px;
                 right: 16px;
                 bottom: 8px;
+            }
+            .image-uploader-tip{
+                font-size: 13px;
+                white-space: nowrap;
+                color: var(--adm-color-weak);
+                position: absolute;
+                bottom: -2px;
             }
         }
     }

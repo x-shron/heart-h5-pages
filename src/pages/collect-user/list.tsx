@@ -6,8 +6,9 @@ import {
   Space,
   SearchBar,
   Button,
+  ImageViewer,
 } from "antd-mobile";
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   List as VirtualizedList,
   AutoSizer,
@@ -24,6 +25,8 @@ export default () => {
   const [hasMore, setHasMore] = useState(true);
   const [queryPage, setQueryPage] = useState({ pageNo: 1, pageSize: 10 });
   const [searchValue, setSearchValue] = useState('')
+  const [visible, setVisible] = useState(false)
+  const [imgs, setImgs] = useState<any[]>([])
 
   const loadMore = async () => {
     const res = await entryUserList({...queryPage, name: searchValue});
@@ -32,6 +35,12 @@ export default () => {
     setHasMore(total > queryPage.pageNo * queryPage.pageSize);
     setQueryPage({ ...queryPage, pageNo: queryPage.pageNo + 1 });
   };
+
+  const lookImgs = (imgs: any[]) => {
+    if(!imgs?.length) return
+    setVisible(true)
+    setImgs(imgs)
+  }
 
   function rowRenderer({ index, key, style }: any) {
     const item = data[index];
@@ -46,7 +55,7 @@ export default () => {
         key={key}
         style={style}
         prefix={
-          <Avatar style={{ "--border-radius": "50%" }} src={avatar || ""} />
+          <Avatar onClick={()=> lookImgs(item.personalImgs)} style={{ "--border-radius": "50%" }} src={avatar || ""} />
         }
         description={
           <>
@@ -58,7 +67,7 @@ export default () => {
       >
         <Space align="center">
           {`${item.name}`} <Tag color="warning">{`${sexName}  ${age} `}</Tag>
-          <span>{mobilePhone}</span>
+          <span>{mobilePhone?.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2")}</span>
         </Space>
       </List.Item>
     );
@@ -101,6 +110,13 @@ export default () => {
         )}
       </WindowScroller>
       <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
+      <ImageViewer.Multi
+        images={imgs}
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
     </div>
   );
 };

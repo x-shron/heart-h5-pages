@@ -50,7 +50,6 @@ export default () => {
 
   const [loading, setLoading] = useState(false);
   const [registerSuccess, setRegisterSuccess] = useState(false);
-  const [successNum, setSuccessNum] = useState(0);
 
   useEffect(() => {
     Promise.all([getAreasMap(), getJobs()]).then((res) => {
@@ -86,6 +85,8 @@ export default () => {
   };
 
   const submit = () => {
+    Toast.show('暂无接口')
+    return;
     userForm.validateFields().then((userValues: any) => {
       setLoading(true);
       const matchmakerValues = matchmakerForm.getFieldsValue();
@@ -124,7 +125,6 @@ export default () => {
       };
       entryUser(params)
         .then((res) => {
-          setSuccessNum(successNum + 1);
           setRegisterSuccess(true);
           userForm.resetFields();
           matchmakerForm.resetFields();
@@ -138,22 +138,11 @@ export default () => {
   };
   return (
     <div className="collect-user">
-      <NavbarTitle title="单身找对象资料填写" back={null} />
+      <NavbarTitle title="红娘申请" back={null} />
       {registerSuccess ? (
         <Result
           status="success"
-          title={`登记成功 +${successNum}`}
-          description={
-            <Button
-              shape="rounded"
-              block
-              color="primary"
-              onClick={() => setRegisterSuccess(false)}
-              className="back-btn"
-            >
-              返回继续登记
-            </Button>
-          }
+          title={`申请成功`}
         />
       ) : (
         <>
@@ -206,17 +195,6 @@ export default () => {
                     columns={options.sex || []}
                   />
                 </Form.Item>
-                <Form.Item
-                  name="height"
-                  label="身高"
-                  rules={[{ required: true }]}
-                >
-                  <InputPicker
-                    placeholder="请选择身高"
-                    columns={options.height || []}
-                    // defaultValue={[170]}
-                  />
-                </Form.Item>
                 <Form.Item name="age" label="年龄" rules={[{ required: true }]}>
                   <InputPicker
                     placeholder="请选择年龄"
@@ -257,15 +235,15 @@ export default () => {
               </Form>
             </Card>
             <div className="divider" />
-            <Card title="红娘信息">
+            <Card title="推荐人信息">
               <Form form={matchmakerForm} layout="horizontal">
-                <Form.Item name="matchmakerName" label="红娘姓名">
-                  <Input placeholder="请输入红娘姓名" />
+                <Form.Item name="matchmakerName" label="推荐人姓名">
+                  <Input placeholder="请输入推荐人姓名" />
                 </Form.Item>
-                <Form.Item name="matchmakerMobile" label="红娘电话">
+                <Form.Item name="matchmakerMobile" label="推荐人电话">
                   <Input
                     type="number"
-                    placeholder="请输入红娘电话"
+                    placeholder="请输入推荐人电话"
                     maxLength={20}
                   />
                 </Form.Item>
