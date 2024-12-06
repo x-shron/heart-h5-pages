@@ -20,6 +20,7 @@ export default defineConfig({
     "@": "/src",
   },
   hash: true,
+  outputPath: "docs",
   publicPath: "./",
   chainWebpack(config, args) {
     config.output.clean(true).chunkFilename("[contenthash].js");
