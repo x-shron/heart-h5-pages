@@ -19,7 +19,6 @@ export default defineConfig({
   alias: {
     "@": "/src",
   },
-  base: "/h5",
   hash: true,
   publicPath: "./",
   chainWebpack(config, args) {
