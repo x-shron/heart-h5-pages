@@ -21,6 +21,7 @@ export default defineConfig({
   },
   base: "/h5",
   hash: true,
+  publicPath: "./",
   chainWebpack(config, args) {
     config.output.clean(true).chunkFilename("[contenthash].js");
   },
